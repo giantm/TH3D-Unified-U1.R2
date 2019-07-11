@@ -1,0 +1,22 @@
+#
+# this assumes the following:
+# 1) execution is via a shell based runner
+# 2) the 64 bit linux arduino install is extracted at /arduino-1.8.9/
+# 3) wget, unzip, gcc, g++, gcc-avr are installed
+#
+# This build is currently configured for my mega 2560 CR-10S. The main_build section should be renamed to printer 
+# specific name, then duplicated and updated as needed for each printer
+# some mechanism is required to copy in the correct configuration.h for each printer config
+
+main_build:
+    script:
+      - mkdir libs
+      - cd libs
+      - wget https://github.com/olikraus/U8glib_Arduino/archive/1.19.1.zip
+      - unzip 1.19.1.zip
+      - cd ..
+      - /arduino-1.8.9/arduino-builder -hardware /arduino-1.8.9/hardware -tools /arduino-1.8.9/tools-builder -tools /arduino-1.8.9/hardware/tools -fqbn arduino:avr:mega:cpu=atmega2560 -libraries ./libs -compile TH3DUF_R2.ino
+    artifacts:
+        paths:
+          - TH3DUF_R2.ino.mega.hex
+          - TH3DUF_R2.ino.with_bootloader.mega.hex
