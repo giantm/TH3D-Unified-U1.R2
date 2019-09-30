@@ -1,3 +1,6 @@
+
+Just realized this has been sitting public.  This is a fork of the original TH3D project.  The purpose of this repo is solely to add a Gitlab CI build integration. It is here,  it is an experimental POC at best.
+
 **This firmware is maintained by TH3D. The goal is an easy to use firmware for 3D printers that we have added support for.**
 
 **The issues queue has been disabled as some people do not understand it's for firmware problems and not technical support.**
